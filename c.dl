@@ -1,0 +1,5 @@
+c(C,i1,L_cur).
+c(C,i2,L_demand).
+c(C,i2,S_storage).
+c(C,i4,S_wind).
+

@@ -1,0 +1,3 @@
+p(F,op,0) :- c(F,i1,X), X = 0, caloric_plant(F), not ab(F).
+p(F,op,B) :- A >= B, c_max(F,B), c(F,i1,A), caloric_plant(F), not ab(F).
+p(F,op,V) :- c(F, i1, V), V > 0, B >= V, c_max(F,B), caloric_plant(F), not ab(F).

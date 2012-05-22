@@ -1,0 +1,4 @@
+windspeed_is_ok :- c(w,iw,X), X <= 40, X >= 5, windmill(w), not ab(w).
+p(w,op,0) :- c(w,i1,0), windspeed_is_ok.
+p(w,op,A) :- c_max(w,C_w), c(w,i1,A), A <= C_w, A > 0, windspeed_is_ok.
+p(w,op,C_w) :- c_max(w,C_w), c(w,i1,A), A > C_w, windspeed_is_ok.

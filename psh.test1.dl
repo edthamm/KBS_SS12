@@ -1,0 +1,6 @@
+c(psh,i2, 15).
+w_charge(10).
+hydro.
+is_charging.
+c(psh,is,empty).
+expected_p(psh,op,5).
