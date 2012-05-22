@@ -2,4 +2,12 @@ c(C,i1,L_cur).
 c(C,i2,L_demand).
 c(C,i2,S_storage).
 c(C,i4,S_wind).
+control(C).
+
+storage_empty :- S_storage = empty.
+windspeed_ok :- S_wind <= 40 , S_winf >= 5.
+
+%set to charge
+p(C,o1,charge), p(C,o4,2) , p(C,o5,p) :- L_cur > L_demand, not S_storage = full.
+
 
