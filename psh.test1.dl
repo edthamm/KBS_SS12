@@ -1,6 +1,5 @@
-c(psh,i2, 15).
+c(psh,i2, 0).
 w_charge(10).
-hydro.
-is_charging.
-c(psh,is,empty).
-expected_p(psh,op,5).
+storage_plant(psh).
+c(psh,i1,0).
+expected_p(psh,op,0).

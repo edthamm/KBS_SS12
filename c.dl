@@ -1,13 +1,9 @@
-c(C,i1,L_cur).
-c(C,i2,L_demand).
-c(C,i2,S_storage).
-c(C,i4,S_wind).
-control(C).
+input :- c(C,i1,L_cur), c(C,i2,L_demand), c(C,i2,S_storage), c(C,i4,S_wind), control(C), not ab(C).
 
-storage_empty :- S_storage = empty.
-windspeed_ok :- S_wind <= 40 , S_winf >= 5.
+storage_empty :- input, S_storage = empty.
+windspeed_ok :- input, S_wind <= 40 , S_wind >= 5.
 
 %set to charge
-p(C,o1,charge), p(C,o4,2) , p(C,o5,p) :- L_cur > L_demand, not S_storage = full.
-
-
+p(C,o1,charge) :- input, L_cur > L_demand, not S_storage = full.
+p(C,o4,2) :- input, L_cur > L_demand, not S_storage = full.
+p(C,o5,p) :- input, L_cur > L_demand, not S_storage = full.
