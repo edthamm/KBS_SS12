@@ -1,0 +1,6 @@
+w_charge(10).
+storage_plant(psh).
+c(psh,i1,charging).
+c(psh,is,full).
+c(psh,i2,5).
+expected_p(psh,op,5).
