@@ -4,3 +4,5 @@ c(psh,i1,non_charging).
 c(psh,i2,5).
 p(psh,op,5).
 expected_p(psh,op,10).
+expected_c(psh,i1,non_charging).
+expected_c(psh,i2,5).

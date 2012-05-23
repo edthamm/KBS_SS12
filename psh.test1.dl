@@ -3,3 +3,5 @@ w_charge(10).
 storage_plant(psh).
 c(psh,i1,0).
 expected_p(psh,op,0).
+expected_c(psh,i1,0).
+expected_c(psh,i2, 0).

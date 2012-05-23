@@ -4,3 +4,6 @@ c(psh,i1,charging).
 c(psh,is,full).
 c(psh,i2,5).
 expected_p(psh,op,5).
+expected_c(psh,i1,charging).
+expected_c(psh,is,full).
+expected_c(psh,i2,5).
