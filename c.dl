@@ -11,6 +11,23 @@ energy_needed(V) :- control_station(_,L_cur,L_demand,_), L_demand > L_cur, V = L
 storage_usable :- control_station(_,_,_,S_storage), S_storage != empty.
 windspeed_ok :- control_station(_,_,_,_), S_wind <= 40 , S_wind >= 5, c(C,i4,S_wind).
 
+%windmill activation
+activate_windmill_with(OUT) :- windspeed_ok, energy_needed(V), windmill(W), c_max(W,C_w), min(C_w,V,OUT).
+
+%storage activation
+%windmill is active but we still need energy
+activate_storage_with(OUT) :- storage_usable, activate_windmill_with(E), energy_needed(V), E < V, storage(PSH), c_max(PSH,C_psh),SN = V-E, min(C_psh,SN,OUT).
+
+%windmill can not be used
+activate_storage_with(OUT) :- not windspeed_ok, storage_usable, energy_needed(V), storage(PSH), c_max(PSH,C_psh), min(C_psh,V,OUT).
+
+%caloric activation
+
+%define both others are active
+storage_and_windmill_produce(OUT) :- activate_windmill_with(A), activate_storage_with(B), OUT = A+B.
+
+p(C,o2,OUT) :- activate_windmill_with(OUT). 
+
 
 
 

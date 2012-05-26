@@ -1,3 +1,4 @@
+%rewrite test to test order of energy station activation
 control(c).
 c(c,i1,10).%L_cur
 c(c,i2,5).%L_demand
