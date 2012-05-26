@@ -2,6 +2,7 @@ w_charge(10).
 storage_plant(psh).
 c(psh,i1,non_charging).
 c(psh,i2,5).
-expected_p(psh,op,5).
 expected_c(psh,i1,non_charging).
 expected_c(psh,i2,5).
+
+expected_p(psh,op,5).
