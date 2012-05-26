@@ -1,9 +1,19 @@
+%windmill and hydro_plant will be used
 control(c).
 c(c,i1,10).%L_cur
-c(c,i2,5).%L_demand
+c(c,i2,20).%L_demand
 c(c,i3,full).%S_storage
 c(c,i4,20).%S_wind
-expected_
-expected_
-expected_
-expected_
+w_charge(8).
+expected_c(c,i1,10).%L_cur
+expected_c(c,i2,20).%L_demand
+expected_c(c,i3,full).%S_storage
+expected_c(c,i4,20).%S_wind
+
+windmill(w).
+c_max(w,5).
+storage_plant(psh).
+c_max(psh,10).
+
+expected_p(c,o2,5).
+expected_p(c,o1,5).

@@ -1,17 +1,16 @@
-%rewrite test to test order of energy station activation
+%only windmill will be used
 control(c).
 c(c,i1,10).%L_cur
-c(c,i2,5).%L_demand
-c(c,i3,empty).%S_storage
+c(c,i2,15).%L_demand
+c(c,i3,full).%S_storage
 c(c,i4,20).%S_wind
 w_charge(8).
 expected_c(c,i1,10).%L_cur
-expected_c(c,i2,5).%L_demand
-expected_c(c,i3,empty).%S_storage
+expected_c(c,i2,15).%L_demand
+expected_c(c,i3,full).%S_storage
 expected_c(c,i4,20).%S_wind
 
+windmill(w).
+c_max(w,10).
 
-
-expected_p(c,o1,charge).
-expected_p(c,o4,2).
-expected_p(c,o5,5).
+expected_p(c,o2,5).
