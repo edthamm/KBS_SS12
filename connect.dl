@@ -1,0 +1,9 @@
+control(c).
+switching(s).
+windmill(w).
+storage_plant(psh).
+caloric_plant(f).
+c_max(psh,20).
+c_max(w,15).
+c_max(f,60).
+w_charge(30).
