@@ -5,7 +5,8 @@ is_charging :- c(PSH,i1,B), B = charging.
 
 p(PSH,op,0) :- is_charging , not is_full, c(PSH,i2,R), w_charge(V), V >= R, R >0, hydro.
 p(PSH,op,OUT) :- is_charging, not is_full, c(PSH,i2,R), w_charge(V), R > V, hydro, -(R,V,OUT).
-p(PSH,op,0) :- c(PSH,i1,0), c(PSH,i2,0), hydro.
+%this one also gives problems in the connection tests
+%p(PSH,op,0) :- c(PSH,i1,0), c(PSH,i2,0), hydro.
 p(PSH,op,0) :- is_empty, hydro, storage_plant(PSH).
 p(PSH,op,A) :- c(PSH,i1,A), not is_empty, c_max(PSH,C_psh), C_psh >= A, A > 0, hydro.
 p(PSH,op,C_psh) :- c(PSH,i1,A), not is_empty, c_max(PSH,C_psh), A > C_psh, hydro. 
@@ -13,4 +14,5 @@ p(PSH,op,C_psh) :- c(PSH,i1,A), not is_empty, c_max(PSH,C_psh), A > C_psh, hydro
 %p(PSH,op,OUT) :- not is_charging, c(PSH,i2,IN), IN > 0,p(PSH,op,N), hydro, OUT = IN+N.
 %p(PSH,op,OUT) :- is_charging, is_full, c(PSH,i2,IN), IN > 0,p(PSH,op,N), OUT = IN+N, hydro.
 p(PSH,op,IN) :- is_charging, is_full, c(PSH,i2,IN), hydro.
-p(PSH,op,IN) :- not is_charging, c(PSH,i2,IN), hydro.
+%this one gives a problem in the connection tests
+%p(PSH,op,IN) :- not is_charging, c(PSH,i2,IN), hydro.
