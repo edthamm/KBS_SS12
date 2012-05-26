@@ -1,0 +1,5 @@
+control(c).
+c(c,i1,10).%L_cur
+c(c,i2,5).%L_demand
+c(c,i3,full).%S_storage
+c(c,i4,20).%S_wind
