@@ -1,8 +1,7 @@
 switching_station :- switching(S), not ab(S).
 
-p(S,o1,0) :- switching_station, c(S,i4,0).
+%p(S,o1,0) :- switching_station, c(S,i4,0).% this rule generates the second phs,i1 in connect.t1
 p(S,o2,V) :- switching_station, c(S,i4,0), c(S,i6,V).
-%p(S,o2,0) :- switching_station, c(S,i4,0), not c(S,i6,_).
 
 p(S,o1,0) :- switching_station, c(S,i4,1).
 %all inputs present
