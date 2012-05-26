@@ -1,0 +1,14 @@
+switching(s).
+c(s,i4,1).
+c(s,i6,2).
+c(s,i1,3).
+c(s,i2,4).
+c(s,i3,5).
+expected_c(s,i4,1).
+expected_c(s,i6,2).
+expected_c(s,i1,3).
+expected_c(s,i2,4).
+expected_c(s,i3,5).
+
+expected_p(s,o2,14).
+expected_p(s,o1,0).

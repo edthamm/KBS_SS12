@@ -1,9 +1,17 @@
-input :- c(C,i1,L_cur), c(C,i2,L_demand), c(C,i2,S_storage), c(C,i4,S_wind), control(C), not ab(C).
+control_station(C,L_cur,L_demand,S_storage) :- c(C,i1,L_cur), c(C,i2,L_demand), c(C,i3,S_storage), control(C), not ab(C).
 
-storage_empty :- input, S_storage = empty.
-windspeed_ok :- input, S_wind <= 40 , S_wind >= 5.
+storage_empty :- control_station(_,_,_,S_storage), S_storage = empty.
+windspeed_ok :- control_station(_,_,_,_), S_wind <= 40 , S_wind >= 5, c(C,i4,S_wind).
+
+%calculate minimum
+min(A,B,MIN) :- #int(A), #int(B), #int(MIN), A < B, MIN=A.
+min(A,B,MIN) :- #int(A), #int(B), #int(MIN), A >= B, MIN=B.
+
+%rules for activating plants
 
 %set to charge
-p(C,o1,charge) :- input, L_cur > L_demand, not S_storage = full.
-p(C,o4,2) :- input, L_cur > L_demand, not S_storage = full.
-p(C,o5,p) :- input, L_cur > L_demand, not S_storage = full.
+p(C,o1,charge) :- control_station(C,L_cur,L_demand,S_storage), L_cur > L_demand, S_storage != full.
+p(C,o4,2) :- control_station(C,L_cur,L_demand,S_storage), L_cur > L_demand, S_storage != full.
+p(C,o5,P) :- control_station(C,L_cur,L_demand,S_storage), L_cur > L_demand, S_storage != full, min(DIF,V,P), DIF = L_cur-L_demand, w_charge(v).
+
+%all other cases
