@@ -17,3 +17,6 @@ c_max(psh,3).
 
 expected_p(c,o2,5).
 expected_p(c,o1,3).
+expected_p(c,o3,0).
+expected_p(c,o4,1).
+expected_p(c,o5,0).

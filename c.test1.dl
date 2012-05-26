@@ -14,3 +14,5 @@ expected_c(c,i4,20).%S_wind
 expected_p(c,o1,charge).
 expected_p(c,o4,2).
 expected_p(c,o5,3).
+expected_p(c,o3,0).
+expected_p(c,o2,0).

@@ -20,3 +20,5 @@ c_max(f,50).
 expected_p(c,o2,5).
 expected_p(c,o1,5).
 expected_p(c,o3,10).
+expected_p(c,o4,1).
+expected_p(c,o5,0).

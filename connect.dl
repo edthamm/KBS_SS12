@@ -35,3 +35,6 @@ c(f,i1,V) :- p(c,o3,V).
 c(s,i1,V) :- p(psh,op,V).
 c(s,i2,V) :- p(w,op,V).
 c(s,i3,V) :- p(f,op,V).
+
+%wire switching output to hydro input
+c(psh,i2,V) :- p(s,o1,V).

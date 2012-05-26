@@ -50,7 +50,7 @@ p(C,o3,OUT) :- control_station(C,_,_,_),activate_caloric_with(OUT).
 
 %set outputs to 0 if a station is not activated
 p(C,o2,0) :- control_station(C,_,_,_), not windmill_active. 
-p(C,o1,0) :- control_station(C,_,_,_), not storage_active.
+p(C,o1,0) :- control_station(C,L_cur,L_demand,_), not storage_active, L_cur < L_demand.
 p(C,o3,0) :- control_station(C,_,_,_), not caloric_active.
 
 
@@ -58,6 +58,11 @@ p(C,o3,0) :- control_station(C,_,_,_), not caloric_active.
 p(C,o1,charge) :- control_station(C,L_cur,L_demand,S_storage), L_cur > L_demand, S_storage != full.
 p(C,o4,2) :- control_station(C,L_cur,L_demand,S_storage), L_cur > L_demand, S_storage != full.
 p(C,o5,P) :- control_station(C,L_cur,L_demand,S_storage), L_cur > L_demand, S_storage != full, min(DIF,V,P), DIF = L_cur-L_demand, w_charge(V).
+
+p(C,o1,0) :- control_station(C,L_cur,L_demand,S_storage), L_cur > L_demand, S_storage = full.
+p(C,o4,0) :- control_station(C,L_cur,L_demand,S_storage), L_cur > L_demand, S_storage = full.
+p(C,o5,0) :- control_station(C,L_cur,L_demand,S_storage), L_cur > L_demand, S_storage = full.
+
 
 %all other cases since we covered Lc><Ld only equals remains
 p(C,o1,0):- control_station(C,L_cur,L_demand,_), L_cur = L_demand.

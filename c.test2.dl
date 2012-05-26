@@ -13,4 +13,8 @@ expected_c(c,i4,20).%S_wind
 windmill(w).
 c_max(w,10).
 
+expected_p(c,o1,0).
 expected_p(c,o2,5).
+expected_p(c,o3,0).
+expected_p(c,o4,1).
+expected_p(c,o5,0).
