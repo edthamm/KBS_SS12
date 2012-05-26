@@ -1,3 +1,4 @@
+%setup components and limits
 control(c).
 switching(s).
 windmill(w).
@@ -7,3 +8,30 @@ c_max(psh,20).
 c_max(w,15).
 c_max(f,60).
 w_charge(30).
+
+%wire input/output variables to control/production lines
+c(w,iw,V) :- in_c(s_wind,V).
+c(c,i4,V) :- in_c(s_wind,V).
+c(psh,is,V) :- in_c(s_storage,V).
+c(c,i3,V) :- in_c(s_storage,V).
+c(c,i1,V) :- in_c(l_current,V).
+c(c,i2,V) :- in_c(l_demand,V).
+c(s,i6,V) :- in_p(p_in,V).
+out_p(p_out,V) :- p(s,o2,V).
+
+
+%wire control output to component input
+%control to switching
+c(s,i4,V) :- p(c,o4,V).
+c(s,i5,V) :- p(c,o5,V).
+
+%control to windmill,plant,fossil
+c(w,i1,V) :- p(c,o2,V).
+c(psh,i1,V) :- p(c,o1,V).
+c(f,i1,V) :- p(c,o3,V).
+
+
+%wire component output to switching input
+c(s,i1,V) :- p(psh,op,V).
+c(s,i2,V) :- p(w,op,V).
+c(s,i3,V) :- p(f,op,V).
