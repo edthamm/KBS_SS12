@@ -9,6 +9,9 @@ energy_needed(V) :- control_station(_,L_cur,L_demand,_), L_demand > L_cur, V = L
 storage_usable :- control_station(_,_,_,S_storage), S_storage != empty.
 windspeed_ok :- control_station(_,_,_,_), S_wind <= 40 , S_wind >= 5, c(C,i4,S_wind).
 
+%set switching to output
+p(C,o4,1) :- energy_needed(V), control_station(C,_,_,_).
+p(C,o5,0) :- energy_needed(V), control_station(C,_,_,_).
 
 %windmill activation
 activate_windmill_with(OUT) :- windspeed_ok, energy_needed(V), windmill(W), c_max(W,C_w), min(C_w,V,OUT).
@@ -36,10 +39,20 @@ activate_caloric_with(OUT) :- not windspeed_ok, activate_storage_with(E), energy
 %nothing else active
 activate_caloric_with(OUT) :- not windspeed_ok, not storage_usable, energy_needed(V), caloric_plant(F), c_max(F,C_f), min(V,C_f,OUT).
 
+windmill_active :- activate_windmill_with(_).
+storage_active :- activate_storage_with(_).
+caloric_active :- activate_caloric_with(_).
+
 
 p(C,o2,OUT) :- control_station(C,_,_,_),activate_windmill_with(OUT). 
 p(C,o1,OUT) :- control_station(C,_,_,_),activate_storage_with(OUT).
 p(C,o3,OUT) :- control_station(C,_,_,_),activate_caloric_with(OUT).
+
+%set outputs to 0 if a station is not activated
+p(C,o2,0) :- control_station(C,_,_,_), not windmill_active. 
+p(C,o1,0) :- control_station(C,_,_,_), not storage_active.
+p(C,o3,0) :- control_station(C,_,_,_), not caloric_active.
+
 
 %set to charge
 p(C,o1,charge) :- control_station(C,L_cur,L_demand,S_storage), L_cur > L_demand, S_storage != full.
