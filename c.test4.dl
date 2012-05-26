@@ -13,7 +13,7 @@ expected_c(c,i4,20).%S_wind
 windmill(w).
 c_max(w,5).
 storage_plant(psh).
-c_max(psh,10).
+c_max(psh,3).
 
 expected_p(c,o2,5).
-expected_p(c,o1,5).
+expected_p(c,o1,3).
