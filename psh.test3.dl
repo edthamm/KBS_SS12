@@ -1,8 +1,11 @@
+%this will fail till recusive issue is fixed
 w_charge(10).
 storage_plant(psh).
 c(psh,i1,non_charging).
 c(psh,i2,5).
 p(psh,op,5).
+c(psh,is,full).
+expected_c(psh,is,full).
 expected_p(psh,op,10).
 expected_c(psh,i1,non_charging).
 expected_c(psh,i2,5).
