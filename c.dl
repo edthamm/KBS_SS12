@@ -9,9 +9,9 @@ energy_needed(V) :- control_station(_,L_cur,L_demand,_), L_demand > L_cur, V = L
 no_energy_needed :- control_station(_,L_cur,L_demand,_), L_demand <= L_cur.
 storage_usable :- control_station(_,_,_,S_storage), S_storage != empty.
 storage_not_usable :- control_station(_,_,_,S_storage), S_storage = empty.
-windspeed_ok :- control_station(_,_,_,_), S_wind <= 40 , S_wind >= 5, c(C,i4,S_wind).
-windspeed_not_ok :- control_station(_,_,_,_), S_wind > 40, c(C,i4,S_wind).
-windspeed_not_ok :- control_station(_,_,_,_), S_wind < 5, c(C,i4,S_wind).
+windspeed_ok :- control_station(C,_,_,_), S_wind <= 40 , S_wind >= 5, c(C,i4,S_wind).
+windspeed_not_ok :- control_station(C,_,_,_), S_wind > 40, c(C,i4,S_wind).
+windspeed_not_ok :- control_station(C,_,_,_), S_wind < 5, c(C,i4,S_wind).
 
 %set switching to output
 p(C,o4,1) :- energy_needed(V), control_station(C,_,_,_).
