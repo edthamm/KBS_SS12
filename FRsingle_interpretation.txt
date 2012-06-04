@@ -1,0 +1,16 @@
+./dlv -N=60 -FRsingle c.dl f.dl s.dl w.dl psh.dl connect.dl constraints.dl abnormal.hyp 
+
+Diagnosis: ab(psh)
+
+Diagnosis: ab(s)
+
+Diagnosis: ab(w)
+
+Diagnosis: ab(f)
+
+Diagnosis: ab(c)
+
+
+Interpretation:
+The observed fault can be coused by failure of any single component.
+We can not determin a single point of failure for this fould in this system.

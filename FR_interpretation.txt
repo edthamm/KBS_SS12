@@ -1,0 +1,72 @@
+./dlv -N=60 -FR c.dl f.dl s.dl w.dl psh.dl connect.dl constraints.dl abnormal.hyp 
+
+Diagnosis: ab(c) ab(f) ab(w)
+
+Diagnosis: ab(f) ab(w)
+
+Diagnosis: ab(c) ab(w)
+
+Diagnosis: ab(w)
+
+Diagnosis: ab(c) ab(f)
+
+Diagnosis: ab(f)
+
+Diagnosis: ab(c)
+
+Diagnosis:
+
+Diagnosis: ab(c) ab(s) ab(f) ab(w)
+
+Diagnosis: ab(s) ab(f) ab(w)
+
+Diagnosis: ab(c) ab(s) ab(w)
+
+Diagnosis: ab(s) ab(w)
+
+Diagnosis: ab(c) ab(s) ab(f)
+
+Diagnosis: ab(s) ab(f)
+
+Diagnosis: ab(c) ab(s)
+
+Diagnosis: ab(s)
+
+Diagnosis: ab(c) ab(f) ab(psh) ab(w)
+
+Diagnosis: ab(f) ab(psh) ab(w)
+
+Diagnosis: ab(c) ab(psh) ab(w)
+
+Diagnosis: ab(psh) ab(w)
+
+Diagnosis: ab(c) ab(f) ab(psh)
+
+Diagnosis: ab(f) ab(psh)
+
+Diagnosis: ab(c) ab(psh)
+
+Diagnosis: ab(psh)
+
+Diagnosis: ab(c) ab(s) ab(f) ab(psh) ab(w)
+
+Diagnosis: ab(s) ab(f) ab(psh) ab(w)
+
+Diagnosis: ab(c) ab(s) ab(psh) ab(w)
+
+Diagnosis: ab(s) ab(psh) ab(w)
+
+Diagnosis: ab(c) ab(s) ab(f) ab(psh)
+
+Diagnosis: ab(s) ab(f) ab(psh)
+
+Diagnosis: ab(c) ab(s) ab(psh)
+
+Diagnosis: ab(s) ab(psh)
+
+Interpretation:
+
+Above we see the multitude of combinations of components which can be abnormal should the observed fault occur.
+We see that from a single failure of any component to the complete failure of all components most constelations are present.
+From the presence of an empty diagnoses I conclude that my model is flawed.
+

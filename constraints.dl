@@ -1,0 +1,4 @@
+:- DUPLICATED_p(_,_,_).
+:- DUPLICATED_c(_,_,_).
+%:- DUPLICATED_p(_,_,_,_).
+%:- DUPLICATED_c(_,_,_,_).

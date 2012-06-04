@@ -1,0 +1,9 @@
+./dlv -N=60 -FRmin c.dl f.dl s.dl w.dl psh.dl connect.dl constraints.dl abnormal.hyp 
+
+Diagnosis:
+
+
+
+Interpretation:
+
+From an empty diagnosis in a fault case I conclude that my modelling is incorrect.
