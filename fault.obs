@@ -1,4 +1,4 @@
-in_c(s_storage,halffull).
+in_c(s_storage,full).
 in_c(s_wind,20).
 in_c(l_demand,55).
 in_c(l_current,10).
