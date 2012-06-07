@@ -1,15 +1,15 @@
 switching_station :- switching(S), not ab(S).
 
 p(S,o1,0) :- c(S,i4,0), switching(S), not ab(S).% this rule generates the second phs,i1 in connect.test1 if I use switching_station
-p(S,o2,V) :- switching_station, c(S,i4,0), c(S,i6,V).
+p(S,o2,V) :- switching_station, c(S,i4,0), p(S,i6,V).
 
 p(S,o1,0) :- switching_station, c(S,i4,1).
 %all inputs present
-p(S,o2,RES) :- switching_station, c(S,i4,1), c(S,i1,A), c(S,i2,B), c(S,i3,C), c(S,i6,D), Z1 = A+B, Z2 = C+D, RES = Z1+Z2.
+p(S,o2,RES) :- switching_station, c(S,i4,1), p(S,i1,A), p(S,i2,B), p(S,i3,C), p(S,i6,D), Z1 = A+B, Z2 = C+D, RES = Z1+Z2.
 
 
-p(S,o1,B) :- switching_station, c(S,i4,2), c(S,i6,A), c(S,i5,B), A >= B.
-p(S,o2,OUT) :- switching_station, c(S,i4,2), c(S,i6,A), c(S,i5,B), A >= B, OUT = A-B.
+p(S,o1,B) :- switching_station, c(S,i4,2), p(S,i6,A), c(S,i5,B), A >= B.
+p(S,o2,OUT) :- switching_station, c(S,i4,2), p(S,i6,A), c(S,i5,B), A >= B, OUT = A-B.
 
-p(S,o1,A) :- switching_station, c(S,i4,2), c(S,i6,A), c(S,i5,B), A < B.
-p(S,o2,0) :- switching_station, c(S,i4,2), c(S,i6,A), c(S,i5,B), A < B.
+p(S,o1,A) :- switching_station, c(S,i4,2), p(S,i6,A), c(S,i5,B), A < B.
+p(S,o2,0) :- switching_station, c(S,i4,2), p(S,i6,A), c(S,i5,B), A < B.

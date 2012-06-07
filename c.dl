@@ -14,8 +14,8 @@ windspeed_not_ok :- control_station(C,_,_,_), S_wind > 40, c(C,i4,S_wind).
 windspeed_not_ok :- control_station(C,_,_,_), S_wind < 5, c(C,i4,S_wind).
 
 %set switching to output
-p(C,o4,1) :- energy_needed(V), control_station(C,_,_,_).
-p(C,o5,0) :- energy_needed(V), control_station(C,_,_,_).
+c(C,o4,1) :- energy_needed(V), control_station(C,_,_,_).
+c(C,o5,0) :- energy_needed(V), control_station(C,_,_,_).
 
 %windmill activation
 activate_windmill_with(OUT) :- windspeed_ok, energy_needed(V), windmill(W), c_max(W,C_w), min(C_w,V,OUT).
@@ -62,29 +62,29 @@ caloric_not_active :- activate_storage_with(E) , energy_needed(V), E >= V.
 caloric_not_active :- activate_windmill_with(E) , energy_needed(V), E >= V.
 
 
-p(C,o2,OUT) :- control_station(C,_,_,_),activate_windmill_with(OUT). 
-p(C,o1,OUT) :- control_station(C,_,_,_),activate_storage_with(OUT).
-p(C,o3,OUT) :- control_station(C,_,_,_),activate_caloric_with(OUT).
+c(C,o2,OUT) :- control_station(C,_,_,_),activate_windmill_with(OUT). 
+c(C,o1,OUT) :- control_station(C,_,_,_),activate_storage_with(OUT).
+c(C,o3,OUT) :- control_station(C,_,_,_),activate_caloric_with(OUT).
 
 %set outputs to 0 if a station is not activated
-p(C,o2,0) :- control_station(C,_,_,_), windmill_not_active. 
-p(C,o1,0) :- control_station(C,L_cur,L_demand,_), storage_not_active, L_cur < L_demand.
-p(C,o3,0) :- control_station(C,_,_,_), caloric_not_active.
+c(C,o2,0) :- control_station(C,_,_,_), windmill_not_active. 
+c(C,o1,0) :- control_station(C,L_cur,L_demand,_), storage_not_active, L_cur < L_demand.
+c(C,o3,0) :- control_station(C,_,_,_), caloric_not_active.
 
 
 %set to charge
-p(C,o1,charge) :- control_station(C,L_cur,L_demand,S_storage), L_cur > L_demand, S_storage != full.
-p(C,o4,2) :- control_station(C,L_cur,L_demand,S_storage), L_cur > L_demand, S_storage != full.
-p(C,o5,P) :- control_station(C,L_cur,L_demand,S_storage), L_cur > L_demand, S_storage != full, min(DIF,V,P), DIF = L_cur-L_demand, w_charge(V).
+c(C,o1,charge) :- control_station(C,L_cur,L_demand,S_storage), L_cur > L_demand, S_storage != full.
+c(C,o4,2) :- control_station(C,L_cur,L_demand,S_storage), L_cur > L_demand, S_storage != full.
+c(C,o5,P) :- control_station(C,L_cur,L_demand,S_storage), L_cur > L_demand, S_storage != full, min(DIF,V,P), DIF = L_cur-L_demand, w_charge(V).
 
-p(C,o1,0) :- control_station(C,L_cur,L_demand,S_storage), L_cur > L_demand, S_storage = full.
-p(C,o4,0) :- control_station(C,L_cur,L_demand,S_storage), L_cur > L_demand, S_storage = full.
-p(C,o5,0) :- control_station(C,L_cur,L_demand,S_storage), L_cur > L_demand, S_storage = full.
+c(C,o1,0) :- control_station(C,L_cur,L_demand,S_storage), L_cur > L_demand, S_storage = full.
+c(C,o4,0) :- control_station(C,L_cur,L_demand,S_storage), L_cur > L_demand, S_storage = full.
+c(C,o5,0) :- control_station(C,L_cur,L_demand,S_storage), L_cur > L_demand, S_storage = full.
 
 
 %all other cases since we covered Lc><Ld only equals remains
-p(C,o1,0):- control_station(C,L_cur,L_demand,_), L_cur = L_demand.
-p(C,o2,0):- control_station(C,L_cur,L_demand,_), L_cur = L_demand.
-p(C,o3,0):- control_station(C,L_cur,L_demand,_), L_cur = L_demand.
-p(C,o4,0):- control_station(C,L_cur,L_demand,_), L_cur = L_demand.
-p(C,o5,0):- control_station(C,L_cur,L_demand,_), L_cur = L_demand.
+c(C,o1,0):- control_station(C,L_cur,L_demand,_), L_cur = L_demand.
+c(C,o2,0):- control_station(C,L_cur,L_demand,_), L_cur = L_demand.
+c(C,o3,0):- control_station(C,L_cur,L_demand,_), L_cur = L_demand.
+c(C,o4,0):- control_station(C,L_cur,L_demand,_), L_cur = L_demand.
+c(C,o5,0):- control_station(C,L_cur,L_demand,_), L_cur = L_demand.
