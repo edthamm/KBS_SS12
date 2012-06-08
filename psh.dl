@@ -3,8 +3,8 @@ is_full :- c(PSH,is,A), A = full.
 is_empty :- c(PSH,is,A), A = empty.
 is_not_empty :- c(PSH,is,A), A != empty.
 hydro :- storage_plant(PSH), not ab(PSH).
-is_charging :- c(PSH,i1,B), B = charging.
-is_not_charging :- c(PSH,i1,B), B != charging.
+is_charging :- c(PSH,i1,B), B = charge.
+is_not_charging :- c(PSH,i1,B), B != charge.
 
 p(PSH,op,0) :- is_charging , is_not_full, c(PSH,i2,R), w_charge(V), V >= R, R >0, hydro.
 p(PSH,op,OUT) :- is_charging, is_not_full, c(PSH,i2,R), w_charge(V), R > V, hydro, -(R,V,OUT).
