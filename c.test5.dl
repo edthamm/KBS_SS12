@@ -5,10 +5,10 @@ c(c,i2,30).%L_demand
 c(c,i3,full).%S_storage
 c(c,i4,20).%S_wind
 w_charge(8).
-expected_c(c,i1,10).%L_cur
-expected_c(c,i2,30).%L_demand
-expected_c(c,i3,full).%S_storage
-expected_c(c,i4,20).%S_wind
+expect_c(c,i1,10).%L_cur
+expect_c(c,i2,30).%L_demand
+expect_c(c,i3,full).%S_storage
+expect_c(c,i4,20).%S_wind
 
 windmill(w).
 c_max(w,5).
@@ -17,8 +17,8 @@ c_max(psh,5).
 caloric_plant(f).
 c_max(f,50).
 
-expected_p(c,o2,5).
-expected_p(c,o1,5).
-expected_p(c,o3,10).
-expected_p(c,o4,1).
-expected_p(c,o5,0).
+expect_c(c,o2,5).
+expect_c(c,o1,5).
+expect_c(c,o3,10).
+expect_c(c,o4,1).
+expect_c(c,o5,0).
