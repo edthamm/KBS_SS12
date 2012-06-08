@@ -5,7 +5,7 @@ c(psh,i1,non_charging).
 c(psh,i2,5).
 p(psh,op,5).
 c(psh,is,full).
-expected_c(psh,is,full).
-expected_p(psh,op,10).
-expected_c(psh,i1,non_charging).
-expected_c(psh,i2,5).
+expect_c(psh,is,full).
+expect_p(psh,op,10).
+expect_c(psh,i1,non_charging).
+expect_c(psh,i2,5).

@@ -3,8 +3,8 @@ storage_plant(psh).
 c(psh,i1,non_charging).
 c(psh,i2,5).
 c(psh,is,non_full).
-expected_c(psh,is,non_full).
-expected_c(psh,i1,non_charging).
-expected_c(psh,i2,5).
+expect_c(psh,is,non_full).
+expect_c(psh,i1,non_charging).
+expect_c(psh,i2,5).
 
-expected_p(psh,op,5).
+expect_p(psh,op,5).
