@@ -1,4 +1,4 @@
 windmill(w).
 c(w,iw,0).
-expected_p(w,op,0).
-expected_c(w,iw,0).
+expect_p(w,op,0).
+expect_c(w,iw,0).

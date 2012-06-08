@@ -2,7 +2,7 @@ windmill(w).
 c(w,iw,7).
 c_max(w,15).
 c(w,i1,10).
-expected_p(w,op,10).
-expected_c(w,iw,7).
-expected_c(w,i1,10).
+expect_p(w,op,10).
+expect_c(w,iw,7).
+expect_c(w,i1,10).
 

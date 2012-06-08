@@ -1,6 +1,6 @@
 windmill(w).
 c(w,iw,7).
 c(w,i1,0).
-expected_p(w,op,0).
-expected_c(w,iw,7).
-expected_c(w,i1,0).
+expect_p(w,op,0).
+expect_c(w,iw,7).
+expect_c(w,i1,0).
