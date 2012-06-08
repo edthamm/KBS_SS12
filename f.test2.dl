@@ -1,4 +1,4 @@
 caloric_plant(f).c_max(f, 20).
 c(f, i1, 30).
-expected_p(f,op,20).
-expected_c(f, i1, 30).
+expect_p(f,op,20).
+expect_c(f, i1, 30).
